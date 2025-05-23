@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fintech Portfolio Website
+
+A modern, responsive portfolio website built with Next.js 15, TypeScript, and Tailwind CSS. Designed specifically for fintech professionals to showcase their experience, skills, and projects.
+
+## Features
+
+- 🎨 Modern UI with smooth animations using Framer Motion
+- 📱 Fully responsive design
+- 🎯 Interactive sections for Experience, Skills, Portfolio, and Contact
+- 📊 Animated skill bars and project statistics
+- 🔗 Social media integration
+- 📝 Contact form with validation
+- ⚡ Built with Next.js 15 and Turbopack for fast development
+- 🎭 Dark/Light mode support
+- 🎨 Gradient text and modern design elements
+
+## Tech Stack
+
+- **Framework:** Next.js 15.1.8
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Animations:** Framer Motion
+- **Icons:** Heroicons
+- **Charts:** Recharts
+- **Development:** Turbopack
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/fintech-resume.git
+   cd fintech-resume
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Project Structure
+
+```
+fintech-resume/
+├── app/
+│   ├── components/     # React components
+│   ├── layout.tsx     # Root layout
+│   └── page.tsx       # Home page
+├── public/            # Static assets
+└── ...config files
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Customization
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Update personal information in `app/page.tsx`
+2. Modify experience details in `app/components/ExperienceTimeline.tsx`
+3. Update skills in `app/components/SkillsSection.tsx`
+4. Edit projects in `app/components/PortfolioSection.tsx`
+5. Customize contact information in `app/components/ContactSection.tsx`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Building for Production
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+This will create an optimized production build in the `.next` directory.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The site can be deployed to various platforms:
 
-## Deploy on Vercel
+- Vercel (Recommended)
+- Netlify
+- AWS Amplify
+- Custom server
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Feel free to submit issues and enhancement requests!
+
+## License
+
+MIT License - feel free to use this project as a template for your own portfolio!
