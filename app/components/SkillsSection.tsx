@@ -2,43 +2,43 @@ import { motion } from 'framer-motion'
 
 const skillCategories = [
   {
-    name: 'Market Data Technologies',
+    name: 'Lorem Technologies',
     skills: [
-      'TREP (Thomson Reuters Enterprise Platform)',
-      'Bloomberg BPIPE',
-      'VELA (Wombat Feed Handlers)',
-      'Symbology of all major exchanges across vendors',
+      'Lorem Ipsum Generator Pro',
+      'Dolor Sit Framework',
+      'Amet Cloud Platform',
+      'Consectetur Analytics Suite',
     ]
   },
   {
-    name: 'Infrastructure & Systems',
+    name: 'Ipsum Systems',
     skills: [
-      'UNIX/Linux Administration',
-      'TCP/IP Networking',
-      'Linux Shell Scripting',
-      'System Monitoring & Performance',
-      'Geneos (ITRS) Monitoring',
-      'Prometheus/Grafana',
+      'Dolor Administration',
+      'Sit Architecture',
+      'Amet Scripting',
+      'Elit Performance Tools',
+      'Eiusmod Monitoring',
+      'Tempor Analytics',
     ]
   },
   {
-    name: 'Programming Languages',
+    name: 'Development Stack',
     skills: [
-      'Java',
-      'Python',
-      'SQL',
-      'Bash',
-      'Groovy',
-      'Perl',
+      'Lorem',
+      'Ipsum',
+      'Dolor',
+      'Sit',
+      'Amet',
+      'Elit',
     ]
   },
   {
-    name: 'Development Tools & Platforms',
+    name: 'Tools & Platforms',
     skills: [
-      'Git Version Control',
-      'Maven Build Tools',
-      'IntelliJ/PyCharm/VSCode',
-      'Linux/MacOS/Windows',
+      'Consectetur Version Control',
+      'Adipiscing Build Tools',
+      'Elit Development Suite',
+      'Tempor Cloud Platform',
     ]
   }
 ]
@@ -78,10 +78,10 @@ const SkillsSection = () => {
     >
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-black">
-          Technical Skills
+          Dolor Sit Amet
         </h2>
         <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-          Specialized in market data systems, infrastructure management, and software development
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {skillCategories.map((category, index) => (

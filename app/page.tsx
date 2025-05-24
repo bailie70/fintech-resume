@@ -42,28 +42,27 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="space-y-6 relative z-10"
           >
-            <h1 className="text-5xl md:text-7xl font-bold gradient-text">
-              John Bailie
+            <h1 className="text-5xl md:text-7xl font-bold text-white">
+              Lorem Ipsum
             </h1>
             <h2 className="text-2xl md:text-3xl text-white">
-              Market Data Professional
+              Dolor Sit Amet
             </h2>
             <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
-              Driving innovation in financial market data systems.
-              Specialized in building and managing enterprise-scale market data solutions.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
             </p>
             <div className="flex gap-4 justify-center mt-8">
               <a 
                 href="#contact" 
                 className="button-primary bg-accent-green hover:bg-accent-green/90 text-white px-8 py-3 rounded-lg transition-all duration-300"
               >
-                Contact Me
+                Consectetur
               </a>
               <a 
                 href="#education" 
                 className="button-secondary border-2 border-white text-white hover:bg-white/10 px-8 py-3 rounded-lg transition-all duration-300"
               >
-                View Education
+                Adipiscing
               </a>
             </div>
           </motion.div>

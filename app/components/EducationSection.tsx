@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { AcademicCapIcon } from '@heroicons/react/24/outline'
 
+/* Original educationDetails:
 const educationDetails = [
   {
     degree: 'BSc Hons',
@@ -16,6 +17,26 @@ const educationDetails = [
     institution: 'University of Ulster',
     period: 'September 2009 – June 2010',
     grade: 'Merit',
+    icon: <AcademicCapIcon className="w-8 h-8 text-accent-green" />
+  },
+]
+*/
+
+const educationDetails = [
+  {
+    degree: 'Lorem Ipsum',
+    field: 'Dolor Sit Amet Technologies',
+    institution: 'University of Lorem',
+    period: '2018 - 2022',
+    grade: 'Magna Cum Laude',
+    icon: <AcademicCapIcon className="w-8 h-8 text-accent-green" />
+  },
+  {
+    degree: 'Consectetur Elite',
+    field: 'Adipiscing Digital Innovation',
+    institution: 'Ipsum Institute',
+    period: '2016 - 2018',
+    grade: 'Summa Cum Laude',
     icon: <AcademicCapIcon className="w-8 h-8 text-accent-green" />
   },
 ]
@@ -57,10 +78,10 @@ const EducationSection = () => {
         viewport={{ once: true }}
       >
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-black">
-          Education
+          Consectetur Elit
         </h2>
         <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-          Academic qualifications and achievements in technology and education
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {educationDetails.map((education, index) => (

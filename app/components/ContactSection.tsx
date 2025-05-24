@@ -18,10 +18,10 @@ const ContactSection = () => {
         viewport={{ once: true }}
       >
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-black">
-          Get in Touch
+          Ipsum Dolor
         </h2>
         <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-          Have a question or want to work together? Feel free to reach out!
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -29,10 +29,10 @@ const ContactSection = () => {
           <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-bold text-primary-dark mb-4">
-                Contact Information
+                Dolor Sit Amet
               </h3>
               <p className="text-gray-600 mb-6">
-                I&apos;m always open to discussing new projects, opportunities, and partnerships.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam.
               </p>
             </div>
 
@@ -43,9 +43,9 @@ const ContactSection = () => {
                   <EnvelopeIcon className="w-6 h-6 text-accent-green" />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500">Email</p>
-                  <a href="mailto:your.email@example.com" className="text-primary-dark hover:text-accent-green">
-                    your.email@example.com
+                  <p className="text-sm text-gray-500">Lorem</p>
+                  <a href="mailto:lorem@ipsum.com" className="text-primary-dark hover:text-accent-green">
+                    lorem@ipsum.com
                   </a>
                 </div>
               </div>
@@ -54,7 +54,7 @@ const ContactSection = () => {
                   <PhoneIcon className="w-6 h-6 text-accent-green" />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500">Phone</p>
+                  <p className="text-sm text-gray-500">Ipsum</p>
                   <a href="tel:+1234567890" className="text-primary-dark hover:text-accent-green">
                     +1 (234) 567-890
                   </a>
@@ -65,12 +65,12 @@ const ContactSection = () => {
             {/* Social Links */}
             <div>
               <h4 className="text-lg font-semibold text-primary-dark mb-4">
-                Connect with me
+                Consectetur Elit
               </h4>
               <div className="flex space-x-4">
-                <SocialLink href="https://linkedin.com/in/yourprofile" platform="LinkedIn" />
-                <SocialLink href="https://github.com/yourusername" platform="GitHub" />
-                <SocialLink href="https://twitter.com/yourhandle" platform="Twitter" />
+                <SocialLink href="https://linkedin.com/in/lorem" platform="LinkedIn" />
+                <SocialLink href="https://github.com/ipsum" platform="GitHub" />
+                <SocialLink href="https://twitter.com/dolor" platform="Twitter" />
               </div>
             </div>
           </div>
@@ -80,7 +80,7 @@ const ContactSection = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                  Name
+                  Dolor
                 </label>
                 <input
                   type="text"
@@ -88,12 +88,12 @@ const ContactSection = () => {
                   name="name"
                   required
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-green focus:border-transparent outline-none transition-all"
-                  placeholder="Your name"
+                  placeholder="Lorem ipsum"
                 />
               </div>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                  Email
+                  Sit Amet
                 </label>
                 <input
                   type="email"
@@ -101,12 +101,12 @@ const ContactSection = () => {
                   name="email"
                   required
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-green focus:border-transparent outline-none transition-all"
-                  placeholder="your.email@example.com"
+                  placeholder="lorem@ipsum.com"
                 />
               </div>
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                  Message
+                  Consectetur
                 </label>
                 <textarea
                   id="message"
@@ -114,7 +114,7 @@ const ContactSection = () => {
                   required
                   rows={4}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-green focus:border-transparent outline-none transition-all resize-none"
-                  placeholder="Your message..."
+                  placeholder="Lorem ipsum dolor sit amet..."
                 />
               </div>
               <motion.button
@@ -123,7 +123,7 @@ const ContactSection = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Send Message
+                Adipiscing Elit
               </motion.button>
             </form>
           </div>

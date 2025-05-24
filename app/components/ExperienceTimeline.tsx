@@ -2,6 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { BriefcaseIcon } from '@heroicons/react/24/outline'
 
+/* Original experiences:
 const experiences = [
   {
     title: 'Market Data Engineer',
@@ -19,39 +20,44 @@ Key achievements and responsibilities:
 • Provided Linux platform troubleshooting (Red Hat, multicast, TCP/IP)
 • Delivered 24/7 global support through on-call rotations`,
   },
+  // ... other original experiences
+]
+*/
+
+const experiences = [
   {
-    title: 'Senior Financial Services Engineer',
-    company: 'Vela Trading Technologies',
-    location: 'Belfast',
-    period: 'November 2012 - March 2014',
-    description: `Provided professional consulting, training, and implementation services for NYSE Technologies clients globally. Key achievements:
-• Successfully implemented large-scale market data messaging solution for Commerzbank
-• Developed and delivered revenue-generating training sessions
-• Conducted global onsite projects across EMEA/APAC regions
-• Created and installed software demo packages for new customers
-• Identified sales opportunities and coordinated with sales teams`,
+    title: 'Senior Ipsum Manager',
+    company: 'Lorem Corp',
+    location: 'New York',
+    period: '2020 - Present',
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+Key achievements:
+• Ut enim ad minim veniam, quis nostrud exercitation
+• Duis aute irure dolor in reprehenderit
+• Excepteur sint occaecat cupidatat non proident
+• Sunt in culpa qui officia deserunt mollit
+• Lorem ipsum dolor sit amet, consectetur adipiscing`,
   },
   {
-    title: 'Technical Consultant',
-    company: 'NYSE Technologies',
-    location: 'Belfast',
-    period: 'September 2010 - November 2012',
-    description: 'Provided first/second line technical assistance and professional services for NYSE\'s Enterprise Software Suite (ESS). Supported financial clients in a fast-paced environment, becoming a senior member of the support team. Developed deep expertise in Financial Software: Wombat, Bloomberg (BPOD/BPIPE), Reuters (RMDS).',
+    title: 'Dolor Sit Director',
+    company: 'Amet Technologies',
+    location: 'San Francisco',
+    period: '2018 - 2020',
+    description: `Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+
+• Quis nostrud exercitation ullamco laboris
+• Nisi ut aliquip ex ea commodo consequat
+• Duis aute irure dolor in reprehenderit
+• Voluptate velit esse cillum dolore`,
   },
   {
-    title: 'IT User Support Officer',
-    company: 'University of Ulster',
-    location: 'Belfast',
-    period: 'May 2008 - September 2010',
-    description: 'Provided technical ICT support and deployment services for classroom facilities, IT and videoconferencing systems. Managed service desk calls and participated in project teams. Gained extensive experience in deploying Microsoft/Apple operating systems in large-scale environments.',
-  },
-  {
-    title: 'International Program Manager',
-    company: 'Microsoft Ireland',
-    location: 'Dublin',
-    period: 'July 2007 - September 2008',
-    description: 'Oversaw and troubleshot major sections of the Fileflow systems for Office 12 Projects. Maintained automated file checker and build process. Developed skills in scripting, XML/XSLT manipulation, HTML, Microsoft Office suite, and command line operations.',
-  },
+    title: 'Consectetur Specialist',
+    company: 'Adipiscing Inc',
+    location: 'London',
+    period: '2016 - 2018',
+    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
+  }
 ]
 
 const ExperienceTimeline = () => {
@@ -62,7 +68,7 @@ const ExperienceTimeline = () => {
     >
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-black">
-          Professional Experience
+          Lorem Ipsum
         </h2>
         <div className="space-y-8">
           {experiences.map((experience, index) => (
