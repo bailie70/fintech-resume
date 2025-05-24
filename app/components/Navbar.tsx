@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { SunIcon, MoonIcon } from '@heroicons/react/24/outline'
+import { SunIcon, MoonIcon, Bars3Icon } from '@heroicons/react/24/outline'
+import MobileMenu from './MobileMenu'
 
 interface NavbarProps {
   isDayMode: boolean;
@@ -9,60 +10,102 @@ interface NavbarProps {
 
 const Navbar = ({ isDayMode, onToggleMode }: NavbarProps) => {
   const [scrolled, setScrolled] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
+  const [lastScrollY, setLastScrollY] = useState(0)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 10
-      if (isScrolled !== scrolled) {
-        setScrolled(isScrolled)
+      const currentScrollY = window.scrollY
+      
+      // Handle background change
+      if (currentScrollY > 10) {
+        setScrolled(true)
+      } else {
+        setScrolled(false)
       }
+
+      // Handle navbar visibility
+      if (currentScrollY < lastScrollY || currentScrollY < 50) {
+        setIsVisible(true)
+      } else if (currentScrollY > 100 && currentScrollY > lastScrollY) {
+        setIsVisible(false)
+      }
+
+      setLastScrollY(currentScrollY)
     }
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [scrolled])
+  }, [lastScrollY])
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-lg' : 'bg-transparent'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <div className="flex-shrink-0">
-            <a href="#" className="text-xl font-bold text-primary-dark hover:text-accent-green transition-colors duration-300">
-              JB
-            </a>
-          </div>
-          <div className="hidden md:flex items-center space-x-4">
-            <NavLink href="#">About</NavLink>
-            <NavLink href="#experience">Experience</NavLink>
-            <NavLink href="#skills">Skills</NavLink>
-            <NavLink href="#education">Education</NavLink>
-            <NavLink href="#contact">Contact</NavLink>
-            <motion.button
-              onClick={onToggleMode}
-              className={`p-2 rounded-full transition-colors duration-300 ${
-                scrolled ? 'bg-gray-100 hover:bg-gray-200' : 'bg-white/10 hover:bg-white/20'
-              }`}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              aria-label={isDayMode ? 'Switch to night mode' : 'Switch to day mode'}
-            >
-              {isDayMode ? (
-                <MoonIcon className="w-5 h-5 text-primary-dark" />
-              ) : (
-                <SunIcon className="w-5 h-5 text-white" />
-              )}
-            </motion.button>
+    <>
+      <motion.nav
+        initial={{ y: -100 }}
+        animate={{ y: isVisible ? 0 : -100 }}
+        transition={{ duration: 0.3 }}
+        className={`fixed w-full z-40 transition-all duration-300 ${
+          scrolled ? 'bg-white shadow-lg' : 'bg-transparent'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex-shrink-0">
+              <a href="#" className="text-xl font-bold text-primary-dark hover:text-accent-green transition-colors duration-300">
+                JB
+              </a>
+            </div>
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-4">
+              <NavLink href="#">About</NavLink>
+              <NavLink href="#experience">Experience</NavLink>
+              <NavLink href="#skills">Skills</NavLink>
+              <NavLink href="#education">Education</NavLink>
+              <NavLink href="#contact">Contact</NavLink>
+              <motion.button
+                onClick={onToggleMode}
+                className={`p-2 rounded-full transition-colors duration-300 ${
+                  scrolled ? 'bg-gray-100 hover:bg-gray-200' : 'bg-white/10 hover:bg-white/20'
+                }`}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                aria-label={isDayMode ? 'Switch to night mode' : 'Switch to day mode'}
+              >
+                {isDayMode ? (
+                  <MoonIcon className="w-5 h-5 text-primary-dark" />
+                ) : (
+                  <SunIcon className="w-5 h-5 text-white" />
+                )}
+              </motion.button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <div className="md:hidden">
+              <motion.button
+                onClick={() => setIsMobileMenuOpen(true)}
+                className={`p-2 rounded-full transition-colors duration-300 ${
+                  scrolled ? 'bg-gray-100 hover:bg-gray-200' : 'bg-white/10 hover:bg-white/20'
+                }`}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <Bars3Icon className={`w-6 h-6 ${scrolled ? 'text-primary-dark' : 'text-white'}`} />
+              </motion.button>
+            </div>
           </div>
         </div>
-      </div>
-    </motion.nav>
+      </motion.nav>
+
+      {/* Mobile Menu */}
+      <MobileMenu
+        isOpen={isMobileMenuOpen}
+        onClose={() => setIsMobileMenuOpen(false)}
+        isDayMode={isDayMode}
+        onToggleMode={onToggleMode}
+      />
+    </>
   )
 }
 
