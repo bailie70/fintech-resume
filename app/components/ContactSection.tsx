@@ -9,7 +9,7 @@ const ContactSection = () => {
   }
 
   return (
-    <section id="contact" className="section-container bg-white py-20 pt-24 scroll-mt-16">
+    <section id="contact" className="section-container bg-white py-20 pt-24 pb-96 scroll-mt-16">
       <motion.div
         className="max-w-6xl mx-auto px-4"
         initial={{ opacity: 0, y: 20 }}
@@ -17,7 +17,7 @@ const ContactSection = () => {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 gradient-text">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-black">
           Get in Touch
         </h2>
         <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
@@ -32,7 +32,7 @@ const ContactSection = () => {
                 Contact Information
               </h3>
               <p className="text-gray-600 mb-6">
-                I'm always open to discussing new projects, opportunities, and partnerships.
+                I&apos;m always open to discussing new projects, opportunities, and partnerships.
               </p>
             </div>
 
