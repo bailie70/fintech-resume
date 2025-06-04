@@ -10,8 +10,6 @@ interface NavbarProps {
 
 const Navbar = ({ isDayMode, onToggleMode }: NavbarProps) => {
   const [scrolled, setScrolled] = useState(false)
-  const [isVisible, setIsVisible] = useState(true)
-  const [lastScrollY, setLastScrollY] = useState(0)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
@@ -24,20 +22,11 @@ const Navbar = ({ isDayMode, onToggleMode }: NavbarProps) => {
       } else {
         setScrolled(false)
       }
-
-      // Handle navbar visibility
-      if (currentScrollY < lastScrollY || currentScrollY < 50) {
-        setIsVisible(true)
-      } else if (currentScrollY > 100 && currentScrollY > lastScrollY) {
-        setIsVisible(false)
-      }
-
-      setLastScrollY(currentScrollY)
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [lastScrollY])
+  }, [])
 
   return (
     <>
