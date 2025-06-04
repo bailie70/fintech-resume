@@ -1,0 +1,20 @@
+services:
+  web-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3010:3000"
+    volumes:
+      # Mount the entire project directory
+      - .:/app
+      # Prevent node_modules from being overwritten by the mount
+      - /app/node_modules
+      # Mount Next.js cache for faster rebuilds
+      - /app/.next
+    environment:
+      - NODE_ENV=development
+      - WATCHPACK_POLLING=true  # Enable polling for file changes in Docker
+    command: npm run dev
+    stdin_open: true
+    tty: true

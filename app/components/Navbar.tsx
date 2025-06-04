@@ -42,11 +42,11 @@ const Navbar = ({ isDayMode, onToggleMode }: NavbarProps) => {
   return (
     <>
       <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: isVisible ? 0 : -100 }}
+        initial={{ y: 0 }}
+        animate={{ y: 0 }}
         transition={{ duration: 0.3 }}
-        className={`fixed w-full z-40 transition-all duration-300 ${
-          scrolled ? 'bg-white shadow-lg' : 'bg-transparent'
+        className={`fixed w-full z-40 transition-all duration-300 bg-white ${
+          scrolled ? 'shadow-lg' : 'shadow-md'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -66,9 +66,7 @@ const Navbar = ({ isDayMode, onToggleMode }: NavbarProps) => {
               <NavLink href="#contact">Contact</NavLink>
               <motion.button
                 onClick={onToggleMode}
-                className={`p-2 rounded-full transition-colors duration-300 ${
-                  scrolled ? 'bg-gray-100 hover:bg-gray-200' : 'bg-white/10 hover:bg-white/20'
-                }`}
+                className="p-2 rounded-full transition-colors duration-300 bg-gray-100 hover:bg-gray-200"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 aria-label={isDayMode ? 'Switch to night mode' : 'Switch to day mode'}
@@ -76,7 +74,7 @@ const Navbar = ({ isDayMode, onToggleMode }: NavbarProps) => {
                 {isDayMode ? (
                   <MoonIcon className="w-5 h-5 text-primary-dark" />
                 ) : (
-                  <SunIcon className="w-5 h-5 text-white" />
+                  <SunIcon className="w-5 h-5 text-primary-dark" />
                 )}
               </motion.button>
             </div>
@@ -85,13 +83,11 @@ const Navbar = ({ isDayMode, onToggleMode }: NavbarProps) => {
             <div className="md:hidden">
               <motion.button
                 onClick={() => setIsMobileMenuOpen(true)}
-                className={`p-2 rounded-full transition-colors duration-300 ${
-                  scrolled ? 'bg-gray-100 hover:bg-gray-200' : 'bg-white/10 hover:bg-white/20'
-                }`}
+                className="p-2 rounded-full transition-colors duration-300 bg-gray-100 hover:bg-gray-200"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <Bars3Icon className={`w-6 h-6 ${scrolled ? 'text-primary-dark' : 'text-white'}`} />
+                <Bars3Icon className="w-6 h-6 text-primary-dark" />
               </motion.button>
             </div>
           </div>
