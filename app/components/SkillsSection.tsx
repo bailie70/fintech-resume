@@ -1,47 +1,9 @@
 import { motion } from 'framer-motion'
+import { Skills, SkillCategory } from '../../lib/content-loader'
 
-const skillCategories = [
-  {
-    name: 'Lorem Technologies',
-    skills: [
-      'Lorem Ipsum Generator Pro',
-      'Dolor Sit Framework',
-      'Amet Cloud Platform',
-      'Consectetur Analytics Suite',
-    ]
-  },
-  {
-    name: 'Ipsum Systems',
-    skills: [
-      'Dolor Administration',
-      'Sit Architecture',
-      'Amet Scripting',
-      'Elit Performance Tools',
-      'Eiusmod Monitoring',
-      'Tempor Analytics',
-    ]
-  },
-  {
-    name: 'Development Stack',
-    skills: [
-      'Lorem',
-      'Ipsum',
-      'Dolor',
-      'Sit',
-      'Amet',
-      'Elit',
-    ]
-  },
-  {
-    name: 'Tools & Platforms',
-    skills: [
-      'Consectetur Version Control',
-      'Adipiscing Build Tools',
-      'Elit Development Suite',
-      'Tempor Cloud Platform',
-    ]
-  }
-]
+interface SkillsSectionProps {
+  content: Skills
+}
 
 const SkillItem = ({ name }: { name: string }) => {
   return (
@@ -51,7 +13,7 @@ const SkillItem = ({ name }: { name: string }) => {
   )
 }
 
-const SkillCategory = ({ category, index }: { category: typeof skillCategories[0]; index: number }) => {
+const SkillCategoryComponent = ({ category, index }: { category: SkillCategory; index: number }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -70,7 +32,7 @@ const SkillCategory = ({ category, index }: { category: typeof skillCategories[0
   )
 }
 
-const SkillsSection = () => {
+const SkillsSection = ({ content }: SkillsSectionProps) => {
   return (
     <section 
       id="skills" 
@@ -78,14 +40,14 @@ const SkillsSection = () => {
     >
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-black dark:text-white">
-          Dolor Sit Amet
+          {content.title}
         </h2>
         <p className="text-gray-600 dark:text-gray-300 text-center mb-12 max-w-2xl mx-auto">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.
+          {content.subtitle}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {skillCategories.map((category, index) => (
-            <SkillCategory key={index} category={category} index={index} />
+          {content.categories.map((category, index) => (
+            <SkillCategoryComponent key={index} category={category} index={index} />
           ))}
         </div>
       </div>

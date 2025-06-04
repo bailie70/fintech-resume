@@ -1,0 +1,158 @@
+# Site Content Configuration
+# This file contains all the text content for the resume website
+# Edit this file to update the content without touching the code
+
+# Personal Information
+personal:
+  name: "Lorem Ipsum"
+  title: "Dolor Sit Amet Professional"
+  bio: 
+    - "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+    - "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  
+# Navigation
+navigation:
+  brand: "LP"
+  links:
+    - { href: "#", label: "About" }
+    - { href: "#experience", label: "Experience" }
+    - { href: "#skills", label: "Skills" }
+    - { href: "#education", label: "Education" }
+    - { href: "#contact", label: "Contact" }
+
+# Hero/Bio Section
+hero:
+  buttons:
+    primary: "Get In Touch"
+    secondary: "View Experience"
+
+# Experience Section
+experience:
+  title: "Lorem Manager"
+  items:
+    - title: "Senior Ipsum Iprem"
+      company: "Lorem Corp"
+      location: "New York"
+      period: "2020 - Present"
+      description: |
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+        Key achievements:
+        • Ut enim ad minim veniam, quis nostrud exercitation
+        • Duis aute irure dolor in reprehenderit
+        • Excepteur sint occaecat cupidatat non proident
+        • Sunt in culpa qui officia deserunt mollit
+        • Lorem ipsum dolor sit amet, consectetur adipiscing
+    
+    - title: "Dolor Sit Director"
+      company: "Amet Technologies"
+      location: "San Francisco"
+      period: "2018 - 2020"
+      description: |
+        Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+
+        • Quis nostrud exercitation ullamco laboris
+        • Nisi ut aliquip ex ea commodo consequat
+        • Duis aute irure dolor in reprehenderit
+        • Voluptate velit esse cillum dolore
+    
+    - title: "Consectetur Specialist"
+      company: "Adipiscing Inc"
+      location: "London"
+      period: "2016 - 2018"
+      description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+
+# Skills Section
+skills:
+  title: "Dolor Sit Amet"
+  subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt."
+  categories:
+    - name: "Lorem Technologies"
+      skills:
+        - "Lorem Ipsum Generator Pro"
+        - "Dolor Sit Framework"
+        - "Amet Cloud Platform"
+        - "Consectetur Analytics Suite"
+    
+    - name: "Ipsum Systems"
+      skills:
+        - "Dolor Administration"
+        - "Sit Architecture"
+        - "Amet Scripting"
+        - "Elit Performance Tools"
+        - "Eiusmod Monitoring"
+        - "Tempor Analytics"
+    
+    - name: "Development Stack"
+      skills:
+        - "Lorem"
+        - "Ipsum"
+        - "Dolor"
+        - "Sit"
+        - "Amet"
+        - "Elit"
+    
+    - name: "Tools & Platforms"
+      skills:
+        - "Consectetur Version Control"
+        - "Adipiscing Build Tools"
+        - "Elit Development Suite"
+        - "Tempor Cloud Platform"
+
+# Education Section
+education:
+  title: "Consectetur Elit"
+  subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor."
+  items:
+    - degree: "Lorem Ipsum"
+      field: "Dolor Sit Amet Technologies"
+      institution: "University of Lorem"
+      period: "2018 - 2022"
+      grade: "Magna Cum Laude"
+    
+    - degree: "Consectetur Elite"
+      field: "Adipiscing Digital Innovation"
+      institution: "Ipsum Institute"
+      period: "2016 - 2018"
+      grade: "Summa Cum Laude"
+
+# Contact Section
+contact:
+  title: "Ipsum Dolor"
+  subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt."
+  info:
+    title: "Dolor Sit Amet"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam."
+    
+    details:
+      email:
+        label: "Lorem"
+        value: "lorem@ipsum.com"
+      phone:
+        label: "Ipsum"
+        value: "+1 (234) 567-890"
+    
+    social:
+      title: "Consectetur Elit"
+      links:
+        - { href: "https://linkedin.com/in/lorem", platform: "LinkedIn" }
+        - { href: "https://github.com/ipsum", platform: "GitHub" }
+        - { href: "https://twitter.com/dolor", platform: "Twitter" }
+  
+  form:
+    fields:
+      name:
+        label: "Dolor"
+        placeholder: "Lorem ipsum"
+      email:
+        label: "Sit Amet"
+        placeholder: "lorem@ipsum.com"
+      message:
+        label: "Consectetur"
+        placeholder: "Lorem ipsum dolor sit amet..."
+    
+    submit: "Adipiscing Elit"
+
+# Mobile Menu
+mobile:
+  themeToggle: "Switch to {mode} Mode"  # {mode} will be replaced with "Night" or "Day"

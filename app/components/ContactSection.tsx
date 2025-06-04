@@ -1,7 +1,12 @@
 import { motion } from 'framer-motion'
 import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
+import { Contact } from '../../lib/content-loader'
 
-const ContactSection = () => {
+interface ContactSectionProps {
+  content: Contact
+}
+
+const ContactSection = ({ content }: ContactSectionProps) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     // TODO: Implement form submission logic
@@ -18,10 +23,10 @@ const ContactSection = () => {
         viewport={{ once: true }}
       >
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-black dark:text-white">
-          Ipsum Dolor
+          {content.title}
         </h2>
         <p className="text-gray-600 dark:text-gray-300 text-center mb-12 max-w-2xl mx-auto">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.
+          {content.subtitle}
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -29,10 +34,10 @@ const ContactSection = () => {
           <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-bold text-primary-dark dark:text-white mb-4">
-                Dolor Sit Amet
+                {content.info.title}
               </h3>
               <p className="text-gray-600 dark:text-gray-300 mb-6">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam.
+                {content.info.description}
               </p>
             </div>
 
@@ -43,9 +48,9 @@ const ContactSection = () => {
                   <EnvelopeIcon className="w-6 h-6 text-accent-green dark:text-accent-green" />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">Lorem</p>
-                  <a href="mailto:lorem@ipsum.com" className="text-primary-dark dark:text-white hover:text-accent-green dark:hover:text-accent-green">
-                    lorem@ipsum.com
+                  <p className="text-sm text-gray-500 dark:text-gray-400">{content.info.details.email.label}</p>
+                  <a href={`mailto:${content.info.details.email.value}`} className="text-primary-dark dark:text-white hover:text-accent-green dark:hover:text-accent-green">
+                    {content.info.details.email.value}
                   </a>
                 </div>
               </div>
@@ -54,9 +59,9 @@ const ContactSection = () => {
                   <PhoneIcon className="w-6 h-6 text-accent-green dark:text-accent-green" />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">Ipsum</p>
-                  <a href="tel:+1234567890" className="text-primary-dark dark:text-white hover:text-accent-green dark:hover:text-accent-green">
-                    +1 (234) 567-890
+                  <p className="text-sm text-gray-500 dark:text-gray-400">{content.info.details.phone.label}</p>
+                  <a href={`tel:${content.info.details.phone.value}`} className="text-primary-dark dark:text-white hover:text-accent-green dark:hover:text-accent-green">
+                    {content.info.details.phone.value}
                   </a>
                 </div>
               </div>
@@ -65,12 +70,12 @@ const ContactSection = () => {
             {/* Social Links */}
             <div>
               <h4 className="text-lg font-semibold text-primary-dark dark:text-white mb-4">
-                Consectetur Elit
+                {content.info.social.title}
               </h4>
               <div className="flex space-x-4">
-                <SocialLink href="https://linkedin.com/in/lorem" platform="LinkedIn" />
-                <SocialLink href="https://github.com/ipsum" platform="GitHub" />
-                <SocialLink href="https://twitter.com/dolor" platform="Twitter" />
+                {content.info.social.links.map((link, index) => (
+                  <SocialLink key={index} href={link.href} platform={link.platform} />
+                ))}
               </div>
             </div>
           </div>
@@ -80,7 +85,7 @@ const ContactSection = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
-                  Dolor
+                  {content.form.fields.name.label}
                 </label>
                 <input
                   type="text"
@@ -88,12 +93,12 @@ const ContactSection = () => {
                   name="name"
                   required
                   className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-accent-green focus:border-transparent outline-none transition-all placeholder-gray-400 dark:placeholder-gray-500"
-                  placeholder="Lorem ipsum"
+                  placeholder={content.form.fields.name.placeholder}
                 />
               </div>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
-                  Sit Amet
+                  {content.form.fields.email.label}
                 </label>
                 <input
                   type="email"
@@ -101,12 +106,12 @@ const ContactSection = () => {
                   name="email"
                   required
                   className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-accent-green focus:border-transparent outline-none transition-all placeholder-gray-400 dark:placeholder-gray-500"
-                  placeholder="lorem@ipsum.com"
+                  placeholder={content.form.fields.email.placeholder}
                 />
               </div>
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
-                  Consectetur
+                  {content.form.fields.message.label}
                 </label>
                 <textarea
                   id="message"
@@ -114,7 +119,7 @@ const ContactSection = () => {
                   required
                   rows={4}
                   className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-accent-green focus:border-transparent outline-none transition-all resize-none placeholder-gray-400 dark:placeholder-gray-500"
-                  placeholder="Lorem ipsum dolor sit amet..."
+                  placeholder={content.form.fields.message.placeholder}
                 />
               </div>
               <motion.button
@@ -123,7 +128,7 @@ const ContactSection = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Adipiscing Elit
+                {content.form.submit}
               </motion.button>
             </form>
           </div>

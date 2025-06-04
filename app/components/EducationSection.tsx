@@ -1,47 +1,12 @@
 import { motion } from 'framer-motion'
 import { AcademicCapIcon } from '@heroicons/react/24/outline'
+import { Education, EducationItem } from '../../lib/content-loader'
 
-/* Original educationDetails:
-const educationDetails = [
-  {
-    degree: 'BSc Hons',
-    field: 'Information and Communication Technologies',
-    institution: 'University of Ulster',
-    period: 'September 2005 - June 2009',
-    grade: 'First Class Honours',
-    icon: <AcademicCapIcon className="w-8 h-8 text-accent-green dark:text-accent-green" />
-  },
-  {
-    degree: 'Post Graduate Certificate (PGC)',
-    field: 'eLearning: Interactive Teaching Technologies',
-    institution: 'University of Ulster',
-    period: 'September 2009 – June 2010',
-    grade: 'Merit',
-    icon: <AcademicCapIcon className="w-8 h-8 text-accent-green dark:text-accent-green" />
-  },
-]
-*/
+interface EducationSectionProps {
+  content: Education
+}
 
-const educationDetails = [
-  {
-    degree: 'Lorem Ipsum',
-    field: 'Dolor Sit Amet Technologies',
-    institution: 'University of Lorem',
-    period: '2018 - 2022',
-    grade: 'Magna Cum Laude',
-    icon: <AcademicCapIcon className="w-8 h-8 text-accent-green dark:text-accent-green" />
-  },
-  {
-    degree: 'Consectetur Elite',
-    field: 'Adipiscing Digital Innovation',
-    institution: 'Ipsum Institute',
-    period: '2016 - 2018',
-    grade: 'Summa Cum Laude',
-    icon: <AcademicCapIcon className="w-8 h-8 text-accent-green dark:text-accent-green" />
-  },
-]
-
-const EducationCard = ({ education }: { education: typeof educationDetails[0] }) => {
+const EducationCard = ({ education }: { education: EducationItem }) => {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
@@ -51,7 +16,7 @@ const EducationCard = ({ education }: { education: typeof educationDetails[0] })
       className="group relative overflow-hidden rounded-xl bg-white dark:bg-gray-800 shadow-lg dark:shadow-gray-900/50 hover:shadow-xl dark:hover:shadow-gray-900/70 transition-all duration-300 p-6"
     >
       <div className="flex items-start gap-4 mb-4">
-        {education.icon}
+        <AcademicCapIcon className="w-8 h-8 text-accent-green dark:text-accent-green" />
         <div>
           <h3 className="text-xl font-bold text-primary-dark dark:text-white">{education.degree}</h3>
           <p className="text-lg text-gray-700 dark:text-gray-300">{education.field}</p>
@@ -67,7 +32,7 @@ const EducationCard = ({ education }: { education: typeof educationDetails[0] })
   )
 }
 
-const EducationSection = () => {
+const EducationSection = ({ content }: EducationSectionProps) => {
   return (
     <section id="education" className="section-container bg-background-alt dark:bg-gray-900 py-20 pt-24 scroll-mt-16">
       <motion.div 
@@ -78,13 +43,13 @@ const EducationSection = () => {
         viewport={{ once: true }}
       >
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-black dark:text-white">
-          Consectetur Elit
+          {content.title}
         </h2>
         <p className="text-gray-600 dark:text-gray-300 text-center mb-12 max-w-2xl mx-auto">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor.
+          {content.subtitle}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {educationDetails.map((education, index) => (
+          {content.items.map((education, index) => (
             <EducationCard key={index} education={education} />
           ))}
         </div>

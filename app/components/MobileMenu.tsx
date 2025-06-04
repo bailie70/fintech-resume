@@ -1,21 +1,16 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { useTheme } from '../contexts/ThemeContext'
+import { Navigation } from '../../lib/content-loader'
 
 interface MobileMenuProps {
   isOpen: boolean
   onClose: () => void
+  content: Navigation
 }
 
-const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
+const MobileMenu = ({ isOpen, onClose, content }: MobileMenuProps) => {
   const { isDayMode, toggleTheme } = useTheme()
-  const menuItems = [
-    { href: '#', label: 'About' },
-    { href: '#experience', label: 'Experience' },
-    { href: '#skills', label: 'Skills' },
-    { href: '#education', label: 'Education' },
-    { href: '#contact', label: 'Contact' },
-  ]
 
   return (
     <AnimatePresence>
@@ -49,7 +44,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
               </div>
               
               <nav className="mt-8">
-                {menuItems.map((item) => (
+                {content.links.map((item) => (
                   <a
                     key={item.label}
                     href={item.href}

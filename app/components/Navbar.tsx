@@ -3,8 +3,13 @@ import { motion } from 'framer-motion'
 import { SunIcon, MoonIcon, Bars3Icon } from '@heroicons/react/24/outline'
 import MobileMenu from './MobileMenu'
 import { useTheme } from '../contexts/ThemeContext'
+import { Navigation } from '../../lib/content-loader'
 
-const Navbar = () => {
+interface NavbarProps {
+  content: Navigation
+}
+
+const Navbar = ({ content }: NavbarProps) => {
   const { isDayMode, toggleTheme } = useTheme()
   const [scrolled, setScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -39,17 +44,15 @@ const Navbar = () => {
           <div className="flex justify-between items-center h-16">
             <div className="flex-shrink-0">
               <a href="#" className="text-xl font-bold text-primary-dark dark:text-white hover:text-accent-green dark:hover:text-accent-green transition-colors duration-300">
-                JB
+                {content.brand}
               </a>
             </div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-4">
-              <NavLink href="#">About</NavLink>
-              <NavLink href="#experience">Experience</NavLink>
-              <NavLink href="#skills">Skills</NavLink>
-              <NavLink href="#education">Education</NavLink>
-              <NavLink href="#contact">Contact</NavLink>
+              {content.links.map((link) => (
+                <NavLink key={link.label} href={link.href}>{link.label}</NavLink>
+              ))}
               <motion.button
                 onClick={toggleTheme}
                 className="p-2 rounded-full transition-colors duration-300 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700"
@@ -84,6 +87,7 @@ const Navbar = () => {
       <MobileMenu
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
+        content={content}
       />
     </>
   )
