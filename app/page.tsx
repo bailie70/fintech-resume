@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useTheme } from './contexts/ThemeContext'
 import Navbar from './components/Navbar'
 import ExperienceTimeline from './components/ExperienceTimeline'
 import SkillsSection from './components/SkillsSection'
@@ -10,7 +10,7 @@ import ContactSection from './components/ContactSection'
 import Image from 'next/image'
 
 export default function Home() {
-  const [isDayMode, setIsDayMode] = useState(true)
+  const { isDayMode } = useTheme()
 
   const backgroundImage = isDayMode
     ? "/images/Day.PNG"
@@ -18,7 +18,7 @@ export default function Home() {
 
   return (
     <>
-      <Navbar isDayMode={isDayMode} onToggleMode={() => setIsDayMode(!isDayMode)} />
+      <Navbar />
       <main className="pt-16">
         {/* Bio Section */}
         <section className="relative section-container py-20 md:py-32 overflow-hidden">
@@ -28,12 +28,16 @@ export default function Home() {
               src={backgroundImage}
               alt="Background"
               fill
-              className="object-cover object-center transition-opacity duration-1000"
+              className="object-cover object-center"
               priority
               quality={100}
             />
             {/* Subtle overlay to ensure text readability */}
-            <div className="absolute inset-0 bg-white/80" />
+            {isDayMode ? (
+              <div className="absolute inset-0 bg-white/80" />
+            ) : (
+              <div className="absolute inset-0 bg-black/45" />
+            )}
           </div>
           
           <div className="max-w-6xl mx-auto px-4 relative z-10">
@@ -45,26 +49,20 @@ export default function Home() {
             >
               {/* Image Column */}
               <div className="flex justify-center md:justify-end">
-                <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl">
-                  <Image
-                    src="/images/profile.jpg"
-                    alt="Profile"
-                    fill
-                    className="object-cover"
-                    priority
-                  />
+                <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl bg-gray-300 dark:bg-gray-700 flex items-center justify-center">
+                  <div className="text-6xl text-gray-500 dark:text-gray-400">👤</div>
                 </div>
               </div>
 
               {/* Bio Content Column */}
               <div className="space-y-6 text-center md:text-left">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-dark">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-dark dark:text-white">
                   Lorem Ipsum
                 </h1>
-                <h2 className="text-xl md:text-2xl lg:text-3xl text-gray-600">
+                <h2 className="text-xl md:text-2xl lg:text-3xl text-gray-600 dark:text-gray-300">
                   Dolor Sit Amet Professional
                 </h2>
-                <div className="space-y-4 text-gray-700">
+                <div className="space-y-4 text-gray-700 dark:text-gray-200">
                   <p className="text-lg leading-relaxed">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
                   </p>
@@ -81,7 +79,7 @@ export default function Home() {
                   </a>
                   <a 
                     href="#experience" 
-                    className="button-secondary border-2 border-primary-dark text-primary-dark hover:bg-primary-dark hover:text-white px-8 py-3 rounded-lg transition-all duration-300"
+                    className="button-secondary border-2 border-primary-dark dark:border-gray-300 text-primary-dark dark:text-gray-300 hover:bg-primary-dark dark:hover:bg-gray-300 hover:text-white dark:hover:text-gray-900 px-8 py-3 rounded-lg transition-all duration-300"
                   >
                     View Experience
                   </a>

@@ -9,7 +9,7 @@ const educationDetails = [
     institution: 'University of Ulster',
     period: 'September 2005 - June 2009',
     grade: 'First Class Honours',
-    icon: <AcademicCapIcon className="w-8 h-8 text-accent-green" />
+    icon: <AcademicCapIcon className="w-8 h-8 text-accent-green dark:text-accent-green" />
   },
   {
     degree: 'Post Graduate Certificate (PGC)',
@@ -17,7 +17,7 @@ const educationDetails = [
     institution: 'University of Ulster',
     period: 'September 2009 – June 2010',
     grade: 'Merit',
-    icon: <AcademicCapIcon className="w-8 h-8 text-accent-green" />
+    icon: <AcademicCapIcon className="w-8 h-8 text-accent-green dark:text-accent-green" />
   },
 ]
 */
@@ -29,7 +29,7 @@ const educationDetails = [
     institution: 'University of Lorem',
     period: '2018 - 2022',
     grade: 'Magna Cum Laude',
-    icon: <AcademicCapIcon className="w-8 h-8 text-accent-green" />
+    icon: <AcademicCapIcon className="w-8 h-8 text-accent-green dark:text-accent-green" />
   },
   {
     degree: 'Consectetur Elite',
@@ -37,7 +37,7 @@ const educationDetails = [
     institution: 'Ipsum Institute',
     period: '2016 - 2018',
     grade: 'Summa Cum Laude',
-    icon: <AcademicCapIcon className="w-8 h-8 text-accent-green" />
+    icon: <AcademicCapIcon className="w-8 h-8 text-accent-green dark:text-accent-green" />
   },
 ]
 
@@ -48,20 +48,20 @@ const EducationCard = ({ education }: { education: typeof educationDetails[0] })
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
-      className="group relative overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 p-6"
+      className="group relative overflow-hidden rounded-xl bg-white dark:bg-gray-800 shadow-lg dark:shadow-gray-900/50 hover:shadow-xl dark:hover:shadow-gray-900/70 transition-all duration-300 p-6"
     >
       <div className="flex items-start gap-4 mb-4">
         {education.icon}
         <div>
-          <h3 className="text-xl font-bold text-primary-dark">{education.degree}</h3>
-          <p className="text-lg text-gray-700">{education.field}</p>
+          <h3 className="text-xl font-bold text-primary-dark dark:text-white">{education.degree}</h3>
+          <p className="text-lg text-gray-700 dark:text-gray-300">{education.field}</p>
         </div>
       </div>
       
       <div className="space-y-2">
-        <p className="text-gray-600">{education.institution}</p>
-        <p className="text-gray-600">{education.period}</p>
-        <p className="text-accent-green font-semibold">Grade: {education.grade}</p>
+        <p className="text-gray-600 dark:text-gray-400">{education.institution}</p>
+        <p className="text-gray-600 dark:text-gray-400">{education.period}</p>
+        <p className="text-accent-green dark:text-accent-green font-semibold">Grade: {education.grade}</p>
       </div>
     </motion.div>
   )
@@ -69,7 +69,7 @@ const EducationCard = ({ education }: { education: typeof educationDetails[0] })
 
 const EducationSection = () => {
   return (
-    <section id="education" className="section-container bg-background-alt py-20 pt-24 scroll-mt-16">
+    <section id="education" className="section-container bg-background-alt dark:bg-gray-900 py-20 pt-24 scroll-mt-16">
       <motion.div 
         className="max-w-6xl mx-auto px-4"
         initial={{ opacity: 0, y: 20 }}
@@ -77,10 +77,10 @@ const EducationSection = () => {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-black">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-black dark:text-white">
           Consectetur Elit
         </h2>
-        <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+        <p className="text-gray-600 dark:text-gray-300 text-center mb-12 max-w-2xl mx-auto">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

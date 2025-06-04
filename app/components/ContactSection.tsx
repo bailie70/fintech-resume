@@ -9,7 +9,7 @@ const ContactSection = () => {
   }
 
   return (
-    <section id="contact" className="section-container bg-white py-20 pt-24 pb-96 scroll-mt-16">
+    <section id="contact" className="section-container bg-white dark:bg-gray-900 py-20 pt-24 pb-96 scroll-mt-16">
       <motion.div
         className="max-w-6xl mx-auto px-4"
         initial={{ opacity: 0, y: 20 }}
@@ -17,10 +17,10 @@ const ContactSection = () => {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-black">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-black dark:text-white">
           Ipsum Dolor
         </h2>
-        <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+        <p className="text-gray-600 dark:text-gray-300 text-center mb-12 max-w-2xl mx-auto">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.
         </p>
 
@@ -28,10 +28,10 @@ const ContactSection = () => {
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold text-primary-dark mb-4">
+              <h3 className="text-2xl font-bold text-primary-dark dark:text-white mb-4">
                 Dolor Sit Amet
               </h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-600 dark:text-gray-300 mb-6">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam.
               </p>
             </div>
@@ -39,23 +39,23 @@ const ContactSection = () => {
             {/* Contact Details */}
             <div className="space-y-4">
               <div className="flex items-center space-x-4">
-                <div className="bg-background-alt p-3 rounded-full">
-                  <EnvelopeIcon className="w-6 h-6 text-accent-green" />
+                <div className="bg-background-alt dark:bg-gray-800 p-3 rounded-full">
+                  <EnvelopeIcon className="w-6 h-6 text-accent-green dark:text-accent-green" />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500">Lorem</p>
-                  <a href="mailto:lorem@ipsum.com" className="text-primary-dark hover:text-accent-green">
+                  <p className="text-sm text-gray-500 dark:text-gray-400">Lorem</p>
+                  <a href="mailto:lorem@ipsum.com" className="text-primary-dark dark:text-white hover:text-accent-green dark:hover:text-accent-green">
                     lorem@ipsum.com
                   </a>
                 </div>
               </div>
               <div className="flex items-center space-x-4">
-                <div className="bg-background-alt p-3 rounded-full">
-                  <PhoneIcon className="w-6 h-6 text-accent-green" />
+                <div className="bg-background-alt dark:bg-gray-800 p-3 rounded-full">
+                  <PhoneIcon className="w-6 h-6 text-accent-green dark:text-accent-green" />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500">Ipsum</p>
-                  <a href="tel:+1234567890" className="text-primary-dark hover:text-accent-green">
+                  <p className="text-sm text-gray-500 dark:text-gray-400">Ipsum</p>
+                  <a href="tel:+1234567890" className="text-primary-dark dark:text-white hover:text-accent-green dark:hover:text-accent-green">
                     +1 (234) 567-890
                   </a>
                 </div>
@@ -64,7 +64,7 @@ const ContactSection = () => {
 
             {/* Social Links */}
             <div>
-              <h4 className="text-lg font-semibold text-primary-dark mb-4">
+              <h4 className="text-lg font-semibold text-primary-dark dark:text-white mb-4">
                 Consectetur Elit
               </h4>
               <div className="flex space-x-4">
@@ -76,10 +76,10 @@ const ContactSection = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white rounded-xl shadow-lg p-8">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg dark:shadow-xl dark:shadow-gray-900/50 p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
                   Dolor
                 </label>
                 <input
@@ -87,12 +87,12 @@ const ContactSection = () => {
                   id="name"
                   name="name"
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-green focus:border-transparent outline-none transition-all"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-accent-green focus:border-transparent outline-none transition-all placeholder-gray-400 dark:placeholder-gray-500"
                   placeholder="Lorem ipsum"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
                   Sit Amet
                 </label>
                 <input
@@ -100,12 +100,12 @@ const ContactSection = () => {
                   id="email"
                   name="email"
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-green focus:border-transparent outline-none transition-all"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-accent-green focus:border-transparent outline-none transition-all placeholder-gray-400 dark:placeholder-gray-500"
                   placeholder="lorem@ipsum.com"
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
                   Consectetur
                 </label>
                 <textarea
@@ -113,13 +113,13 @@ const ContactSection = () => {
                   name="message"
                   required
                   rows={4}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-green focus:border-transparent outline-none transition-all resize-none"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-accent-green focus:border-transparent outline-none transition-all resize-none placeholder-gray-400 dark:placeholder-gray-500"
                   placeholder="Lorem ipsum dolor sit amet..."
                 />
               </div>
               <motion.button
                 type="submit"
-                className="w-full bg-accent-green text-white font-medium py-3 px-6 rounded-lg hover:bg-accent-green/90 transition-colors duration-300"
+                className="w-full bg-accent-green dark:bg-accent-green text-white dark:text-white font-medium py-3 px-6 rounded-lg hover:bg-accent-green/90 dark:hover:bg-accent-green/80 transition-colors duration-300"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -138,7 +138,7 @@ const SocialLink = ({ href, platform }: { href: string; platform: string }) => (
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="bg-background-alt text-primary-dark hover:text-accent-green p-3 rounded-full transition-colors duration-300"
+    className="bg-background-alt dark:bg-gray-800 text-primary-dark dark:text-gray-300 hover:text-accent-green dark:hover:text-accent-green p-3 rounded-full transition-colors duration-300"
     whileHover={{ scale: 1.1 }}
     whileTap={{ scale: 0.9 }}
   >

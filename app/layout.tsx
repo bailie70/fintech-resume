@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "./contexts/ThemeContext";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const poppins = Poppins({
@@ -22,9 +23,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${poppins.variable} font-sans antialiased`}>
-        <div className="min-h-screen bg-gradient-to-b from-background to-background-alt">
-          {children}
-        </div>
+        <ThemeProvider>
+          <div className="min-h-screen bg-gradient-to-b from-background to-background-alt dark:bg-transparent">
+            {children}
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

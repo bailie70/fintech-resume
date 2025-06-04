@@ -2,13 +2,10 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { SunIcon, MoonIcon, Bars3Icon } from '@heroicons/react/24/outline'
 import MobileMenu from './MobileMenu'
+import { useTheme } from '../contexts/ThemeContext'
 
-interface NavbarProps {
-  isDayMode: boolean;
-  onToggleMode: () => void;
-}
-
-const Navbar = ({ isDayMode, onToggleMode }: NavbarProps) => {
+const Navbar = () => {
+  const { isDayMode, toggleTheme } = useTheme()
   const [scrolled, setScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
@@ -34,14 +31,14 @@ const Navbar = ({ isDayMode, onToggleMode }: NavbarProps) => {
         initial={{ y: 0 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.3 }}
-        className={`fixed w-full z-40 transition-all duration-300 bg-white ${
-          scrolled ? 'shadow-lg' : 'shadow-md'
+        className={`fixed w-full z-40 transition-all duration-300 bg-white dark:bg-gray-900 ${
+          scrolled ? 'shadow-lg dark:shadow-gray-800' : 'shadow-md dark:shadow-gray-800'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex-shrink-0">
-              <a href="#" className="text-xl font-bold text-primary-dark hover:text-accent-green transition-colors duration-300">
+              <a href="#" className="text-xl font-bold text-primary-dark dark:text-white hover:text-accent-green dark:hover:text-accent-green transition-colors duration-300">
                 JB
               </a>
             </div>
@@ -54,16 +51,16 @@ const Navbar = ({ isDayMode, onToggleMode }: NavbarProps) => {
               <NavLink href="#education">Education</NavLink>
               <NavLink href="#contact">Contact</NavLink>
               <motion.button
-                onClick={onToggleMode}
-                className="p-2 rounded-full transition-colors duration-300 bg-gray-100 hover:bg-gray-200"
+                onClick={toggleTheme}
+                className="p-2 rounded-full transition-colors duration-300 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 aria-label={isDayMode ? 'Switch to night mode' : 'Switch to day mode'}
               >
                 {isDayMode ? (
-                  <MoonIcon className="w-5 h-5 text-primary-dark" />
+                  <MoonIcon className="w-5 h-5 text-primary-dark dark:text-gray-200" />
                 ) : (
-                  <SunIcon className="w-5 h-5 text-primary-dark" />
+                  <SunIcon className="w-5 h-5 text-primary-dark dark:text-yellow-400" />
                 )}
               </motion.button>
             </div>
@@ -72,11 +69,11 @@ const Navbar = ({ isDayMode, onToggleMode }: NavbarProps) => {
             <div className="md:hidden">
               <motion.button
                 onClick={() => setIsMobileMenuOpen(true)}
-                className="p-2 rounded-full transition-colors duration-300 bg-gray-100 hover:bg-gray-200"
+                className="p-2 rounded-full transition-colors duration-300 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <Bars3Icon className="w-6 h-6 text-primary-dark" />
+                <Bars3Icon className="w-6 h-6 text-primary-dark dark:text-gray-200" />
               </motion.button>
             </div>
           </div>
@@ -87,8 +84,6 @@ const Navbar = ({ isDayMode, onToggleMode }: NavbarProps) => {
       <MobileMenu
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
-        isDayMode={isDayMode}
-        onToggleMode={onToggleMode}
       />
     </>
   )
@@ -97,7 +92,7 @@ const Navbar = ({ isDayMode, onToggleMode }: NavbarProps) => {
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
   <a
     href={href}
-    className="text-gray-600 hover:text-primary-dark px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300"
+    className="text-gray-600 dark:text-gray-300 hover:text-primary-dark dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300"
   >
     {children}
   </a>
